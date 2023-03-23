@@ -4,8 +4,10 @@ import StuList from './StuList'
 import { Modal, Portal, Button, Provider } from 'react-native-paper';
 import { TouchableRipple } from 'react-native-paper';
 import { List } from 'react-native-paper';
-
 import { StyleSheet, Pressable } from 'react-native';
+import AddStudent from './AddStudent';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 export default function AllStudents({ navigation }) {
@@ -41,7 +43,7 @@ export default function AllStudents({ navigation }) {
 
         <View>
             <Text style={{ fontSize: 40, alignSelf: 'center', marginTop: "5%", color: '#A459D1' }}>All Students</Text>
-            <TouchableOpacity style={{ backgroundColor: '#AA77FF', height: 35, width: 40, borderRadius: 100, }} onPress={() => console.log('touchable opacity Pressed')}>
+            <TouchableOpacity style={{ backgroundColor: '#AA77FF', height: 35, width: 40, borderRadius: 100, }} onPress={() => navigation.navigate('AddStudent')}>
                 <Text style={{ color: 'white', alignSelf: 'center', fontSize: 25 }}>+</Text>
             </TouchableOpacity>
 

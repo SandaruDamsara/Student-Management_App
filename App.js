@@ -11,6 +11,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DrawerNav from './DrawerNav';
 import { Provider as StoreProvider } from 'react-redux';
 import StuList from './StuList';
+import AddStudent from './AddStudent';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="DrawerNav" component={DrawerNav} options={{ headerShown: false }} />
         <Stack.Screen name="StuList" component={StuList} />
+        <Stack.Screen name="AddStudent" component={AddStudent} />
       </Stack.Navigator>
     </NavigationContainer>
 

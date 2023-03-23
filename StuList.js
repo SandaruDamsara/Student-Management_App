@@ -4,6 +4,8 @@ import { ScrollView } from 'react-native';
 import { Dialog, Portal, Text } from 'react-native-paper';
 import { TextInput } from 'react-native-paper';
 import { useRoute } from '@react-navigation/native';
+import { Button } from 'react-native-paper';
+
 
 
 export default function StuList({ route, navigation }) {
@@ -29,6 +31,14 @@ export default function StuList({ route, navigation }) {
             .then((response) => response.json())
             .then((json) => setData(json));
     }
+
+    const DeleteStudent = () => {
+        fetch(`http://192.168.249.21:3000/api/v1/student/${stuid}`, {
+            method: 'DELETE',
+        });
+        navigation.navigate('DrawerNav')
+    }
+
     // setData(json)
 
     useEffect(() => {
@@ -101,6 +111,8 @@ export default function StuList({ route, navigation }) {
                                 }}
                             />
 
+
+
                             {/* <Text style={{ color: 'black', marginTop: 20 }}>{item.std_id}</Text>
                             <Text style={{ color: 'black', marginTop: 20 }}>{item.std_name}</Text>
                             <Text style={{ color: 'black', marginTop: 20 }}>{item.std_address}</Text>
@@ -114,6 +126,13 @@ export default function StuList({ route, navigation }) {
                 }}
                 keyExtractor={item => item.id}
             />
+            <Button mode="contained" onPress={DeleteStudent} style={{
+                marginTop: "10%",
+                width: "45%",
+                alignSelf: 'center'
+            }}>
+                Delete
+            </Button>
 
 
             {/* 
